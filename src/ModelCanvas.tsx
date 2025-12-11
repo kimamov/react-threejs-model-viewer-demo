@@ -133,6 +133,8 @@ function Model({ modelUrl, textureUrl, stickerUrl, stickerTransform }: ModelCanv
     let cancelled = false
     const loader = new TextureLoader()
     loader.setCrossOrigin('anonymous')
+    // Reset current texture immediately so the next apply is in sync with the selection
+    setTexture(null)
 
     loader.load(
       textureUrl,
@@ -196,8 +198,9 @@ function Model({ modelUrl, textureUrl, stickerUrl, stickerTransform }: ModelCanv
                   vec4 texNext = texture2D( uNextMap, vMapUv );
                   float noise = texture2D( uNoiseMap, vMapUv * 8.0 + vec2(uMix * 2.0) ).r;
                   float mixProgress = clamp(uMix, 0.0, 1.0);
-                  float edge = smoothstep(mixProgress - 0.2, mixProgress + 0.2, noise);
-                  vec4 texelColor = mix(texPrev, texNext, edge);
+                  float noiseEdge = smoothstep(mixProgress - 0.2, mixProgress + 0.2, noise);
+                  float blend = max(noiseEdge, mixProgress);
+                  vec4 texelColor = mix(texPrev, texNext, blend);
                   diffuseColor *= texelColor;
                 #endif
                 `,
