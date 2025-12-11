@@ -195,7 +195,8 @@ function Model({ modelUrl, textureUrl, stickerUrl, stickerTransform }: ModelCanv
                   vec4 texPrev = texture2D( uPrevMap, vMapUv );
                   vec4 texNext = texture2D( uNextMap, vMapUv );
                   float noise = texture2D( uNoiseMap, vMapUv * 8.0 + vec2(uMix * 2.0) ).r;
-                  float edge = smoothstep(uMix - 0.2, uMix + 0.2, noise);
+                  float mixProgress = clamp(uMix, 0.0, 1.0);
+                  float edge = smoothstep((1.0 - mixProgress) - 0.2, (1.0 - mixProgress) + 0.2, noise);
                   vec4 texelColor = mix(texPrev, texNext, edge);
                   diffuseColor *= texelColor;
                 #endif

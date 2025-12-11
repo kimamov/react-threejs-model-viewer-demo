@@ -47,15 +47,15 @@ const defaultTextures: TextureOption[] = [
     url: 'https://threejs.org/examples/textures/uv_grid_opengl.jpg',
   },
   {
-    id: 'metal',
-    name: 'Brushed Metal',
-    // Use the textures directly from the threejs.org examples site to avoid raw.githubusercontent 404s
-    url: 'https://threejs.org/examples/textures/metal/Metal_Plate_037_basecolor.jpg',
+    id: 'brick',
+    name: 'Brick Wall',
+    // Verified 200 (no CORS issues) so the dropdown options do not 404
+    url: 'https://threejs.org/examples/textures/brick_diffuse.jpg',
   },
   {
-    id: 'fabric',
-    name: 'Blue Fabric',
-    url: 'https://threejs.org/examples/textures/fabric/fabric_04_basecolor.jpg',
+    id: 'earth',
+    name: 'Earth Diffuse',
+    url: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
   },
 ]
 
