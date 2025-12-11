@@ -49,12 +49,13 @@ const defaultTextures: TextureOption[] = [
   {
     id: 'metal',
     name: 'Brushed Metal',
-    url: 'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/metal/Metal_Plate_037_basecolor.jpg',
+    // Use the textures directly from the threejs.org examples site to avoid raw.githubusercontent 404s
+    url: 'https://threejs.org/examples/textures/metal/Metal_Plate_037_basecolor.jpg',
   },
   {
     id: 'fabric',
     name: 'Blue Fabric',
-    url: 'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/fabric/fabric_04_basecolor.jpg',
+    url: 'https://threejs.org/examples/textures/fabric/fabric_04_basecolor.jpg',
   },
 ]
 
